@@ -13,30 +13,30 @@ export default function ProductForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="bg-white p-6 rounded-xl shadow-md">
-            <h2 className="text-2xl font-semibold mb-4">Adicionar Produto</h2>
+        <form onSubmit={handleSubmit} className="bg-white p-6 rounded-xl shadow-md border border-pink-100">
+            <h2 className="text-2xl font-semibold mb-4 text-pink-600">Adicionar Produto</h2>
             <input
                 type="text"
                 placeholder="Nome"
-                className="w-full mb-3 p-2 border border-gray-300 rounded"
+                className="w-full mb-3 p-2 border border-rose-300 rounded text-rose-700"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
             />
             <input
                 type="number"
                 placeholder="Preço"
-                className="w-full mb-3 p-2 border border-gray-300 rounded"
+                className="w-full mb-3 p-2 border border-rose-300 rounded text-rose-700"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
             />
             <input
                 type="text"
                 placeholder="Categoria"
-                className="w-full mb-3 p-2 border border-gray-300 rounded"
+                className="w-full mb-3 p-2 border border-rose-300 rounded text-rose-700"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
             />
-            <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+            <button type="submit" className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600">
                 Adicionar
             </button>
         </form>

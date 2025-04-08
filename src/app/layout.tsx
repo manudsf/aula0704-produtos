@@ -16,9 +16,9 @@ export default function RootLayout({
 }) {
     return (
         <html lang="pt-BR">
-        <body className={`${inter.className} bg-gray-50 text-gray-900`}>
+        <body className={`${inter.className} bg-pink-50 text-rose-800`}>
         <main className="max-w-5xl mx-auto p-6">
-            <h1 className="text-3xl font-bold mb-6">Minha Lista de Produtos</h1>
+            <h1 className="text-3xl font-bold mb-6 text-pink-600">Minha Lista de Produtos</h1>
             {children}
         </main>
         </body>
