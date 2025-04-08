@@ -1,36 +1,49 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Este é um projeto [Next.js](https://nextjs.org) criado com [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+## 🛠️ Começando
 
-First, run the development server:
+Primeiro, execute o servidor de desenvolvimento:
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
-# or
+# ou
 pnpm dev
-# or
+# ou
 bun dev
 ```
+Abra http://localhost:3000 no seu navegador para ver o resultado.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Você pode começar a editar a página modificando app/page.tsx. A página será atualizada automaticamente conforme você altera o arquivo.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Este projeto utiliza next/font para otimizar e carregar automaticamente a fonte Geist, uma nova família tipográfica da Vercel.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+📦 Descrição do Projeto
+Este é um aplicativo simples e responsivo de lista de produtos, construído com Next.js 15, React Server Components e TailwindCSS.
 
-## Learn More
+✨ Funcionalidades
 
-To learn more about Next.js, take a look at the following resources:
+    -> Listagem de produtos com dados simulados (mock)
+    -> Componente visual de card para exibição de produtos
+    -> Formulário de cadastro de produtos (simulado com alert)
+    -> Layout totalmente responsivo com TailwindCSS
+    -> Estrutura limpa e modular com App Router
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+📁 Estrutura do Projeto
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+├── app/   
+│   ├── layout.tsx              
+│   ├── page.tsx                
+│   └── products/     
+│       ├── page.tsx           
+│       └── add/   
+│           └── page.tsx       
+├── components/   
+│   ├── ProductCard.tsx         
+│   ├── ProductForm.tsx         
+│   └── ProductList.tsx        
+├── styles/  
+│   └── globals.css             
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
