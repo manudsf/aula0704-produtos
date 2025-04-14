@@ -1,9 +1,4 @@
-type Product = {
-    id: number
-    name: string
-    price: number
-    category: string
-}
+import { Product } from '@/types/Product';
 
 export default function ProductCard({ product }: { product: Product }) {
     return (
@@ -12,5 +7,5 @@ export default function ProductCard({ product }: { product: Product }) {
             <p className="text-rose-500">Categoria: {product.category}</p>
             <p className="text-fuchsia-600 font-semibold mt-2">R$ {product.price.toFixed(2)}</p>
         </div>
-    )
+    );
 }

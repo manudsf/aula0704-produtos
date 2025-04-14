@@ -1,44 +1,65 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
+import { useState } from 'react';
+import { Product } from '@/types/Product';
 
-export default function ProductForm() {
-    const [name, setName] = useState('')
-    const [price, setPrice] = useState('')
-    const [category, setCategory] = useState('')
+interface ProductFormProps {
+    onAdd: (product: Product) => void;
+}
+
+export default function ProductForm({ onAdd }: ProductFormProps) {
+    const [name, setName] = useState('');
+    const [price, setPrice] = useState('');
+    const [category, setCategory] = useState('');
 
     const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
-        alert(`Produto: ${name}, R$${price}, Categoria: ${category}`)
-    }
+        e.preventDefault();
+        if (!name || !price || !category) return;
+
+        const newProduct: Product = {
+            id: Date.now(),
+            name,
+            price: parseFloat(price),
+            category,
+        };
+        onAdd(newProduct);
+        setName('');
+        setPrice('');
+        setCategory('');
+    };
 
     return (
-        <form onSubmit={handleSubmit} className="bg-white p-6 rounded-xl shadow-md border border-pink-100">
-            <h2 className="text-2xl font-semibold mb-4 text-pink-600">Adicionar Produto</h2>
+        <form
+            onSubmit={handleSubmit}
+            className="bg-white p-6 rounded-xl shadow-md mb-6 space-y-4 border border-gray-200"
+        >
             <input
                 type="text"
-                placeholder="Nome"
-                className="w-full mb-3 p-2 border border-rose-300 rounded text-rose-700"
+                placeholder="Nome do produto"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                className="w-full p-2 border border-gray-300 rounded-md"
             />
             <input
                 type="number"
                 placeholder="Preço"
-                className="w-full mb-3 p-2 border border-rose-300 rounded text-rose-700"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
+                className="w-full p-2 border border-gray-300 rounded-md"
             />
             <input
                 type="text"
                 placeholder="Categoria"
-                className="w-full mb-3 p-2 border border-rose-300 rounded text-rose-700"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
+                className="w-full p-2 border border-gray-300 rounded-md"
             />
-            <button type="submit" className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600">
-                Adicionar
+            <button
+                type="submit"
+                className="bg-pink-600 text-white py-2 px-4 rounded-md hover:bg-pink-700 transition"
+            >
+                Adicionar Produto
             </button>
         </form>
-    )
+    );
 }

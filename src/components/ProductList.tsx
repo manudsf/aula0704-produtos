@@ -1,19 +1,30 @@
-import ProductCard from './ProductCard'
+'use client';
 
-const mockProducts = [
-    { id: 1, name: 'Camiseta', price: 59.9, category: 'Vestuário' },
-    { id: 2, name: 'Notebook', price: 3999.0, category: 'Eletrônicos' },
-    { id: 3, name: 'Tênis', price: 299.9, category: 'Calçados' },
-    { id: 4, name: 'Fone Bluetooth', price: 199.0, category: 'Acessórios' },
-]
+import { useState } from 'react';
+import { Product } from '@/types/Product';
+import ProductCard from './ProductCard';
+import ProductForm from './ProductForm';
 
 export default function ProductList() {
-    return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {mockProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
-            ))}
-        </div>
-    )
-}
+    const [products, setProducts] = useState<Product[]>([{
+        id: 1,
+        name: 'Teclado',
+        price: 79.9,
+        category: 'Tecnologia',
+    }]);
 
+    const addProduct = (product: Product) => {
+        setProducts((prev) => [...prev, product]);
+    };
+
+    return (
+        <div className="px-6">
+            <ProductForm onAdd={addProduct} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {products.map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                ))}
+            </div>
+        </div>
+    );
+}
